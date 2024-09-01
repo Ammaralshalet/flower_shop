@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:task/responsive/responsive.dart';
 import 'package:task/view/signup_page.dart';
 
 class LoginPage extends StatelessWidget {
@@ -7,6 +8,8 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Responsive responsive = Responsive(context);
+
     return Scaffold(
       backgroundColor: const Color(0xffE6F6F6),
       body: Stack(
@@ -14,8 +17,8 @@ class LoginPage extends StatelessWidget {
           Align(
             alignment: Alignment.topRight,
             child: Container(
-              height: 150,
-              width: 175,
+              height: responsive.getHeightPercentage(20),
+              width: responsive.getWidthPercentage(30),
               decoration: const BoxDecoration(
                 color: Color(0xffF3E4F9),
                 borderRadius: BorderRadius.only(
@@ -27,12 +30,14 @@ class LoginPage extends StatelessWidget {
           Positioned(
             top: -50,
             right: -1,
-            child: Image.asset('asset/image_top.png'),
+            child: Image.asset('asset/image_top.png',
+                height: responsive.getHeightPercentage(30),
+                width: responsive.getWidthPercentage(50)),
           ),
-          const Positioned(
-            left: 80,
-            top: 120,
-            child: Text(
+          Positioned(
+            left: responsive.getWidthPercentage(20),
+            top: responsive.getHeightPercentage(20),
+            child: const Text(
               'Logo',
               style: TextStyle(
                 fontSize: 64,
@@ -42,10 +47,10 @@ class LoginPage extends StatelessWidget {
             ),
           ),
           Positioned(
-            left: 80,
-            top: 250,
+            left: responsive.getWidthPercentage(20),
+            top: responsive.getHeightPercentage(40),
             child: SizedBox(
-              width: 300,
+              width: responsive.getWidthPercentage(70),
               child: TextField(
                 decoration: InputDecoration(
                   hintText: 'Email',
@@ -60,10 +65,10 @@ class LoginPage extends StatelessWidget {
             ),
           ),
           Positioned(
-            left: 80,
-            top: 310,
+            left: responsive.getWidthPercentage(20),
+            top: responsive.getHeightPercentage(48),
             child: SizedBox(
-              width: 300,
+              width: responsive.getWidthPercentage(70),
               child: TextField(
                 decoration: InputDecoration(
                   hintText: 'Phone Number',
@@ -78,10 +83,10 @@ class LoginPage extends StatelessWidget {
             ),
           ),
           Positioned(
-            left: 80,
-            top: 370,
+            left: responsive.getWidthPercentage(20),
+            top: responsive.getHeightPercentage(56),
             child: SizedBox(
-              width: 300,
+              width: responsive.getWidthPercentage(70),
               child: TextField(
                 decoration: InputDecoration(
                   hintText: 'Password',
@@ -95,10 +100,10 @@ class LoginPage extends StatelessWidget {
               ),
             ),
           ),
-          const Positioned(
-            left: 105,
-            top: 425,
-            child: Text(
+          Positioned(
+            left: responsive.getWidthPercentage(25),
+            top: responsive.getHeightPercentage(64),
+            child: const Text(
               'Should be none less than 8 characters',
               style: TextStyle(
                 color: Color(0xff8C8A8C),
@@ -107,10 +112,10 @@ class LoginPage extends StatelessWidget {
               ),
             ),
           ),
-          const Positioned(
-            left: 170,
-            top: 445,
-            child: Text(
+          Positioned(
+            left: responsive.getWidthPercentage(40),
+            top: responsive.getHeightPercentage(67),
+            child: const Text(
               'Forget password?',
               style: TextStyle(
                 color: Colors.red,
@@ -120,8 +125,8 @@ class LoginPage extends StatelessWidget {
             ),
           ),
           Positioned(
-            left: 150,
-            top: 500,
+            left: responsive.getWidthPercentage(35),
+            top: responsive.getHeightPercentage(75),
             child: Column(
               children: [
                 Row(
@@ -172,8 +177,8 @@ class LoginPage extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 540,
-            left: 152,
+            top: responsive.getHeightPercentage(80),
+            left: responsive.getWidthPercentage(34),
             child: Container(
               height: 60,
               width: 195,
@@ -196,8 +201,8 @@ class LoginPage extends StatelessWidget {
           Align(
             alignment: Alignment.bottomLeft,
             child: Container(
-              height: 125,
-              width: 150,
+              height: responsive.getHeightPercentage(15),
+              width: responsive.getWidthPercentage(30),
               decoration: const BoxDecoration(
                 color: Color(0xffF3E4F9),
                 borderRadius: BorderRadius.only(
@@ -209,7 +214,9 @@ class LoginPage extends StatelessWidget {
           Positioned(
             left: -1,
             bottom: -1,
-            child: Image.asset('asset/image_bottom.png'),
+            child: Image.asset('asset/image_bottom.png',
+                height: responsive.getHeightPercentage(15),
+                width: responsive.getWidthPercentage(30)),
           ),
         ],
       ),
