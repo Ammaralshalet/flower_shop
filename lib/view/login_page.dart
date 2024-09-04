@@ -127,6 +127,7 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   TextField(
                     controller: phoneController,
+                    keyboardType: TextInputType.phone,
                     decoration: InputDecoration(
                       hintText: 'Phone Number',
                       filled: true,
@@ -209,50 +210,47 @@ class _LoginPageState extends State<LoginPage> {
             left: responsive.getWidthPercentage(35),
             top: responsive.getHeightPercentage(75),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Row(
-                  children: [
-                    RichText(
-                      text: TextSpan(
+                RichText(
+                  text: TextSpan(
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 12,
+                      color: Color(0xff8C8A8C),
+                    ),
+                    children: [
+                      const TextSpan(
+                        text: "Don't have an account? ",
+                      ),
+                      TextSpan(
+                        text: "Sign Up",
                         style: const TextStyle(
                           fontWeight: FontWeight.w700,
-                          fontSize: 12,
+                          fontSize: 14,
                           color: Color(0xff3C2367),
                         ),
-                        children: [
-                          const TextSpan(
-                            text: "Don't have an account? ",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 12,
-                              color: Color(0xff8C8A8C),
-                            ),
-                          ),
-                          TextSpan(
-                            text: "Sign Up",
-                            style: const TextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 14,
-                              color: Color(0xff3C2367),
-                            ),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const SignupPage(),
-                                  ),
-                                );
-                              },
-                          ),
-                        ],
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const SignupPage(),
+                              ),
+                            );
+                          },
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-                const Divider(
-                  height: 20,
-                  color: Color(0xff3C2367),
+                const Padding(
+                  padding: EdgeInsets.only(top: 4.0),
+                  child: Divider(
+                    color: Color(0xff3C2367),
+                    thickness: 2,
+                    indent: 20,
+                    endIndent: 20,
+                  ),
                 ),
               ],
             ),
